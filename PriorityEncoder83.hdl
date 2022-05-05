@@ -1,0 +1,15 @@
+//NAME AND UIN
+
+/**
+ * Priority Encoder 
+ * out always contains the encoded id of the active input based on priority
+ * idle is 1 if all inputs are inactive, otherwise it is 0
+ */
+
+CHIP PriorityEncoder83 {
+    IN a[8];
+    OUT out[3], idle;
+
+    PARTS:
+    // Put your code here:
+}

@@ -1,0 +1,13 @@
+// Tarun Arumugam 530001455
+
+CHIP Add6carry {
+    IN a[6], b[6], c;
+    OUT out[6], carry;
+    
+    PARTS:
+
+    RCA4(a=a[0..3], b=b[0..3], cin=c, out=out[0..3], carry=d);
+
+    RCA4(a[0..1]=a[4..5], b[0..1]=b[4..5], cin=d, out[0..1] = out[4..5], out[2]=carry);
+
+}

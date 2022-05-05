@@ -1,0 +1,12 @@
+// Tarun Arumugam 530001455
+
+CHIP RCA4 {
+    IN a[4], b[4], cin;
+    OUT out[4], carry;
+
+    PARTS:
+    FullAdder(a=a[0], b=b[0], c=cin, sum=out[0], carry=c);
+    FullAdder(a=a[1], b=b[1], c=c, sum=out[1], carry=d);
+    FullAdder(a=a[2], b=b[2], c=d, sum=out[2], carry=e);
+    FullAdder(a=a[3], b=b[3], c=e, sum=out[3], carry=carry);
+}

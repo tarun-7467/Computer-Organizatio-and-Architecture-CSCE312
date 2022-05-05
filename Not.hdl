@@ -1,0 +1,14 @@
+// Tarun Arumugam 530001455
+
+/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP Not {
+    IN in;
+    OUT out;
+
+    PARTS:
+    Nor(a = in, b = in, out = out);
+}

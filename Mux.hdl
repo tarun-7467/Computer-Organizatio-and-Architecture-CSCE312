@@ -1,0 +1,18 @@
+//Tarun Arumugam 530001455
+
+/** 
+ * Multiplexor:
+ * out = a if sel == 0
+ *       b otherwise
+ */
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=sel, out=c);
+    And(a=a, b=c, out=d);
+    And(a=sel, b=b, out=e);
+    Or(a=d, b=e, out=out);
+}

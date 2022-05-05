@@ -1,0 +1,18 @@
+//Tarun Arumugam 530001455
+
+/**
+ * Exclusive-Nor gate:
+ * out = (a == b)
+ */
+
+CHIP Xnor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nor(a=a, b=a, out=c);
+    Nor(a=b, b=b, out=d);
+    Nor(a=c, b=b, out=e);
+    Nor(a=d, b=a, out=f);
+    Nor(a=e, b=f, out=out);
+}

@@ -1,0 +1,17 @@
+//Tarun Arumugam 530001455
+
+/**
+ * And gate: 
+ * out = 1 if (a == 1 and b == 1)
+ *       0 otherwise
+ */
+
+CHIP And {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nor(a=a, b=a, out=c);
+    Nor(a=b, b=b, out=d);
+    Nor(a=c, b=d, out=out);
+}

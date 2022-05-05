@@ -1,0 +1,19 @@
+//Tarun Arumugam
+
+/**
+ * Adds or Subtracts two 10-bit values.
+ * Both inputs a and b are in SIGNED 2s complement format
+ * when sub == 0, the chip performs add i.e. out=a+b
+ * when sub == 1, the chip performs subtract i.e. out=a-b
+ * carry reflects the overflow calculated for 10-bit add/subtract in 2s complement
+ */
+
+CHIP AddSub10 {
+    IN a[10], b[10], sub;
+    OUT out[10],carry;
+
+    PARTS:
+    Negation16(in[0..9]=b,out=notB);
+    Mux16(a[0..9]=b, b=notB, sel=sub, out=car);
+    Add16(a[0..9]=a, b=car, out[0..9]=out, out[10]=carry);
+}

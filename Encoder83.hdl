@@ -1,0 +1,27 @@
+//Tarun Arumugam 530001455
+
+/**
+ * Encoder 
+ * out always contains the encoded id of the active input
+ * at any time only one bit in a[8] can be 1
+ * idle is 1 if all inputs are inactive, otherwise it is 0
+ */
+
+CHIP Encoder83 {
+    IN a[8];
+    OUT out[3], idle;
+
+    PARTS:
+    Or(a = a[7], b = a[6], out = c);
+    Or(a = a[5], b = a[4], out = d);
+    Or(a = c, b = d, out = out[2]);
+    Or(a = a[7], b = a[5], out = out5);
+    Or(a = a[3], b = a[1], out = out6);
+    Or(a = out5, b = out6, out = out[0]);
+    Or(a = a[7], b = a[6], out = out3);
+    Or(a = a[3], b = a[2], out = out4);
+    Or(a = out3, b = out4, out = out[1]);
+
+    Or8Way(in = a, out = test);
+    Not(in = test, out = idle);
+}

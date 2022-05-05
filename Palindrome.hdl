@@ -1,0 +1,22 @@
+//Tarun Arumugam 530001455
+
+/**
+ * Palindrome Detection: 
+ * out = 1 if a palindrome is detected in the sequence of bits "pqrst" 
+ * for example, if sequence "pqrst" is 10101 then out = 1
+ * for example, if sequence "pqrst" is 10110 then out = 0 
+ */
+
+CHIP Palindrome {
+    
+    IN p, q, r, s, t;
+    OUT out;
+	
+    PARTS:
+    Xor(a = p, b = t, out = c);
+    Xor(a = q, b = s, out = d);
+    Not(in = c, out = f);
+    Not(in = d, out = z);
+    And(a = f, b = z, out = out);
+
+}

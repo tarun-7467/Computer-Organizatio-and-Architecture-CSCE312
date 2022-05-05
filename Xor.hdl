@@ -1,0 +1,16 @@
+//Tarun Arumugam 530001455
+
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    And(a=a, b=b, out=c);
+    Nor(a=a, b=b, out=d);
+    Nor(a=c, b=d, out=out);
+}
